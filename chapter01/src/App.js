@@ -4,7 +4,7 @@ class App extends Component {
     return (
       <div>
         <h1>
-          My First React App! Hi there!
+         Hello there!
         </h1>
       </div>
     );
