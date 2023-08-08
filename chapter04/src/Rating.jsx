@@ -1,25 +1,21 @@
 import React, { Component } from 'react';
-import { IoIosStar, IoIosStarOutline } from 'react-icons/io';
+import { IoIosStar, IoIosStarOutline } from 'react-icons/io'
 
 class Rating extends Component {
     constructor(props) {
-        //UI is rerendered to reflect changes made
         super(props);
         this.state = { rating: this.props.rating };
     }
-    //define handleClick function (invoked when stars are clicked)
+
     handleClick(ratingValue) {
         this.setState({ rating: ratingValue });
     }
+
     render() {
         return (
-            <div>
+            <div style={styles.starStyle}>
                 <h1>Rating: {this.state.rating}</h1>
-                {/* conditional rendering 
-                (if rating is less than or = number render shaded IoIosStar
-                else display empty stars) */}
                 {this.state.rating >= 1 ? (
-                    // bind function creates link between memory and display
                     <IoIosStar onClick={this.handleClick.bind(this, 1)} />
                 ) : (
                     <IoIosStarOutline onClick={this.handleClick.bind(this, 1)} />
@@ -44,8 +40,16 @@ class Rating extends Component {
                 ) : (
                     <IoIosStarOutline onClick={this.handleClick.bind(this, 5)} />
                 )}
+                {this.props.numOfReviews}
             </div>
-        );
+        )
     }
 }
+
 export default Rating;
+
+const styles = {
+    starStyle: {
+        color: 'orange'
+    }
+}
