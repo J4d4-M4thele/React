@@ -10,10 +10,10 @@ class App extends Component {
 
     return (
       <div className="App">
-        <JumboTronComponent>
-          This is a long sentence, and I want to insert content into the
-          jumbotron component from the outside .
-        </JumboTronComponent>
+      <JumboTronComponent>
+        This is a long sentence, and I want to insert content into the
+        jumbotron component from the outside .
+      </JumboTronComponent>
         {/* <UserForm></UserForm> */}
         {/* <h1>Hello world</h1>
         <Products /> */}
