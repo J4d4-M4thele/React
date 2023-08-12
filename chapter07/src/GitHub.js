@@ -18,12 +18,12 @@ class GitHub extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);  
 
     }
-
+    //calls the server if needed
     componentDidMount(){
         //this.getGitHubData('greg');
     }	
 
-
+    //returns github data from API endpoint
     getGitHubData(_searchTerm){                
         axios.get("https://api.github.com/search/users?q="+_searchTerm)
             .then(res => {   
@@ -80,7 +80,7 @@ class GitHub extends Component {
           </div>
         );
     }
-    
+    //event handlers
     handleSubmit(e) {
         e.preventDefault();    
         this.setState({
