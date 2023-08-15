@@ -9,13 +9,11 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <NotFound />
       </div>
     );
   }
 }
 export default App;
-//J4d4-M4thele/102987102
 
 //return header in app
 class Header extends Component {
