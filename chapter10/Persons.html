@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>List of Persons</title>
+    <!-- connecting to redux library -->
+    <script src="https://unpkg.com/redux@latest/dist/redux.js"></script>
+</head>
+
+<body>
+    <script>
+        function addPerson(id, name, age) {
+            return {
+                type: "ADD",
+                //payload
+                personData: {
+                    id: id,
+                    name: name,
+                    age: age
+                }
+
+            }
+        }
+        function removePerson(id) {
+            return {
+                type: "REMOVE",
+                //payload
+                personId: id,
+            }
+        }
+    </script>
+</body>
+
+</html>
