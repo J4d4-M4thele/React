@@ -4,6 +4,7 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import { Table, Button, Modal } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 class User extends Component {
     constructor(props) {
@@ -15,7 +16,36 @@ class User extends Component {
         };
         //events
         //this.add = this.add.bind(this);
+        this.closeDeleteDialog = this.closeDeleteDialog.bind(this);
+        this.delete = this.delete.bind(this);
     }
+
+    delete(e) {
+        firebase.database().ref('/' + this.state.selectedUser.key).remove()
+            .then(x => {
+                console.log("SUCCESS");
+                this.closeDeleteDialog();
+            })
+            .catch(error => {
+                alert("Could not delete the user.");
+                console.log("ERROR", error)
+            });
+    }
+
+    openDeleteDialog(user) {
+        this.setState({
+            showDeleteDialog: true,
+            selectedUser: user
+        });
+    }
+
+    closeDeleteDialog() {
+        this.setState({
+            showDeleteDialog: false,
+            selectedUser: {}
+        });
+    }
+
     //where server requests and state updates occur
     componentDidMount() {
         //accessing database
@@ -39,7 +69,11 @@ class User extends Component {
             <tr key={user.key}>
                 <td>{user.username}</td>
                 <td>{user.email}</td>
-                <td>Edit</td>
+                <td>
+                    <Link to={`/edit/${user.key}`}>
+                        Edit
+                    </Link>
+                </td>
                 <td>
                     <Button onClick={this.openDeleteDialog.bind(this, user)}>Remove</Button>
                 </td>
