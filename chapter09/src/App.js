@@ -7,7 +7,7 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import 'firebase/compat/database';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-//import UserForm from './UserForm';
+import UserForm from './UserForm';
 
 
 class App extends Component {
@@ -23,6 +23,7 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Switch>
+              <Route path="/add" component={UserForm} />
               <Route exact path="/" component={User} />
               <Route path="/*" component={NotFound} />
             </Switch>

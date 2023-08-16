@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
-import * as firebase from 'firebase';
-import { Table } from 'react-bootstrap';
+//import * as firebase from 'firebase';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+import { Table, Button, Modal } from 'react-bootstrap';
 
 class User extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            users: []
+            users: [],
+            showDeleteDialog: false,
+            selectedUser: {}
         };
+        //events
+        //this.add = this.add.bind(this);
     }
     //where server requests and state updates occur
     componentDidMount() {
@@ -33,11 +40,14 @@ class User extends Component {
                 <td>{user.username}</td>
                 <td>{user.email}</td>
                 <td>Edit</td>
-                <td>Remove</td>
+                <td>
+                    <Button onClick={this.openDeleteDialog.bind(this, user)}>Remove</Button>
+                </td>
             </tr>
         );
         return (
             <div>
+                <Button variant="primary" onClick={this.add}>Add</Button>
                 <Table striped bordered hover>
                     <thead>
                         <tr>
@@ -51,6 +61,21 @@ class User extends Component {
                         {listUsers}
                     </tbody>
                 </Table>
+                <Modal show={this.state.showDeleteDialog} onHide={this.closeDeleteDialog}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Delete User</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <p>Are you sure you want to delete
+                            {this.state.selectedUser.username}?</p>
+                        <hr />
+                    </Modal.Body>
+                    {/* gives options to delete or cancel, much like an alert */}
+                    <Modal.Footer>
+                        <Button onClick={this.delete}>Delete</Button>
+                        <Button onClick={this.closeDeleteDialog}>Close</Button>
+                    </Modal.Footer>
+                </Modal>
             </div>
         );
     }
