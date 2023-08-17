@@ -5,6 +5,7 @@ class AddProduct extends Component {
         productName: '',
         productPrice: 0
     }
+    //eventlisteners
     productNameChangedHandler = (event) => {
         this.setState({ productName: event.target.value });
     }
@@ -14,12 +15,14 @@ class AddProduct extends Component {
     render() {
         return (
             <div className="container">
+                {/* product name */}
                 <input
                     type="text"
                     placeholder="Product Name"
                     onChange={this.productNameChangedHandler}
                     value={this.state.productName}
                 />
+                {/* product price */}
                 <input
                     type="number"
                     placeholder="Product Price"
