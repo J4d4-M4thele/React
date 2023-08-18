@@ -34,7 +34,8 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
-import useFetch from './useFetch'
+import useFetch from './useFetch';
+import Users from './Users';
 
 const App = () => {
   const postsUrl = "https://jsonplaceholder.typicode.com/posts"
@@ -46,6 +47,7 @@ const App = () => {
   const data = useFetch(requested)
   return (
     <div>
+      <Users />
       <Button variant="link" onClick={() => setRequested(postsUrl)}>
         Posts
       </Button>
