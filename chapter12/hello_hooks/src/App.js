@@ -31,9 +31,10 @@
 /***********FUNCTION-BASED COMPONENTS****** */
 //library for hooks (useState)
 //useEffect is used to get data (equivalent of componentDidMount)
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
+import useFetch from './useFetch'
 
 const App = () => {
   const postsUrl = "https://jsonplaceholder.typicode.com/posts"
@@ -42,13 +43,7 @@ const App = () => {
   //returns two elements instead of one
   const [requested, setRequested] = useState(postsUrl)
   //initialises data into an empty array
-  const [data, setData] = useState([])
-  useEffect(() => {
-    fetch(requested)
-      .then(response => response.json())
-      .then(data => setData(data))
-    //use state is empty array to prevent infinite loop of state updates
-  }, [requested])
+  const data = useFetch(requested)
   return (
     <div>
       <Button variant="link" onClick={() => setRequested(postsUrl)}>
