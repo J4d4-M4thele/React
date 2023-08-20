@@ -2,12 +2,14 @@
 import './App.css';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
+import WeatherApp from "./WeatherApp";
 
-function App() {
-  // render(){
+class App extends React.Component {
+  render(){
   return (
-    <DynamicTable />
+    <WeatherApp />
   );
+  }
 }
 
 export default App;
