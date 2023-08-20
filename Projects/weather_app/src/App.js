@@ -1,7 +1,7 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import DynamicTable from "./DynamicTable";
+import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 
 function App() {
   // render(){
