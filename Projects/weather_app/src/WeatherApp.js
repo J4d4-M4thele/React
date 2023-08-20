@@ -8,7 +8,7 @@ function WeatherApp() {
      setCityName(e.target.value);
   }
     const fetchWeatherAPI = async() =>{
-      const APIurl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units={f525c72d2554fd02f55418694c3db3b2}`;
+      const APIurl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units={ENTER_API_KEY}`;
       const resp = await fetch(APIurl);
       const respJson = await resp.json();
       setWeatherData(respJson);
