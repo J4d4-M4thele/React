@@ -1,9 +1,11 @@
 import './App.css';
 import React from 'react';
-import Goal from './Goal';
+import Garage from './Garage';
 
 function App() {
-  return <Goal isGoal={true}/>
+  const cars = ['Mercedes-Benz', 'BMW', 'Audi', 'Porsche'];
+  //return <Goal isGoal={true}/>
+  return <Garage cars={cars}/>
 }
 
 export default App;
