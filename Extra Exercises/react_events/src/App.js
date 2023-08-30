@@ -3,7 +3,7 @@ import React from 'react';
 import Football from './Football';
 
 function App() {
-  <Football />
+  return <Football />
 }
 
 export default App;
