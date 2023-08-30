@@ -3,7 +3,7 @@ import React from 'react';
 import Goal from './Goal';
 
 function App() {
-  return <Goal />
+  return <Goal isGoal={true}/>
 }
 
 export default App;
