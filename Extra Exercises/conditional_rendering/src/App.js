@@ -1,11 +1,13 @@
 import './App.css';
 import React from 'react';
-import Garage from './Garage';
+//import Garage from './Garage';
+import Goal from './Goal';
 
 function App() {
-  const cars = ['Mercedes-Benz', 'BMW', 'Audi', 'Porsche'];
-  //return <Goal isGoal={true}/>
-  return <Garage cars={cars}/>
+ 
+  return <Goal isGoal={false}/>
+  //const cars = ['Mercedes-Benz', 'BMW', 'Audi', 'Porsche'];
+  //return <Garage cars={cars}/>
 }
 
 export default App;

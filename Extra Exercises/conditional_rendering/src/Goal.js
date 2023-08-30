@@ -3,10 +3,18 @@ import MissedGoal from "./MissedGoal";
 
 function Goal(props) {
     const isGoal = props.isGoal;
-    if (isGoal) {
-        return <MadeGoal />;
-    }
-    return <MissedGoal />;
+    //IF LOGIC STATEMENT
+    // if (isGoal) {
+    //     return <MadeGoal />;
+    // }
+    // return <MissedGoal />;
+
+    //TERNARY OPERATOR
+    return(
+    <>
+       {isGoal ? <MadeGoal/> : <MissedGoal/>}
+    </>
+    );
 }
 
 export default Goal;
