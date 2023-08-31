@@ -5,6 +5,8 @@ function Counter() {
     const [calculation, setCalculation] = useState(0);
 
     useEffect(() => {
+        //Runs on the first render
+        //runs anytime count value changes
         setCalculation(() => count * 2);
     }, [count]);
 

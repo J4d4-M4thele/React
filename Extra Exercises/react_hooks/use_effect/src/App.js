@@ -1,9 +1,9 @@
 import './App.css';
 import React from 'react';
-import Timer from './Timer';
+import Counter from './Counter';
 
 function App() {
-  return <Timer/>
+  return <Counter/>
 }
 
 export default App;
