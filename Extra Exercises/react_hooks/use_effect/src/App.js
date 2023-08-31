@@ -1,9 +1,9 @@
 import './App.css';
 import React from 'react';
-import Car from './Car';
+import Timer from './Timer';
 
 function App() {
-  return <Car/>
+  return <Timer/>
 }
 
 export default App;
