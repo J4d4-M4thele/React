@@ -1,9 +1,9 @@
 import './App.css';
 import React from 'react';
-import FavoriteColor from './FavoriteColor';
+import Todos from './Todos';
 
 function App() {
-  return <FavoriteColor/>
+  return <Todos/>
 }
 
 export default App;
