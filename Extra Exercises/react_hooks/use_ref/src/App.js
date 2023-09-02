@@ -1,52 +1,65 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import ReactDOM from "react-dom/client";
 
-function Component1() {
-  const [user, setUser] = useState("Jesse Hall");
+/****DOESN'T ALLLOW FOR RERENDERING****/
+// function App() {
+//   const [inputValue, setInputValue] = useState("");
+//   //useRef hook allows you to persist values between renders
+//   const count = useRef(0);
+
+//   useEffect(() => {
+//     count.current = count.current + 1;
+//   });
+
+//   return (
+//     <>
+//       <input
+//         type="text"
+//         value={inputValue}
+//         onChange={(e) => setInputValue(e.target.value)}
+//       />
+//       <h1>Render Count: {count.current}</h1>
+//     </>
+//   );
+// }
+
+/****ACCESSING DOM ELEMENTS****/
+// function App() {
+//   const inputElement = useRef();
+
+//   const focusInput = () => {
+//     inputElement.current.focus();
+//   };
+
+//   return (
+//     <>
+//       <input type="text" ref={inputElement} />
+//       <button onClick={focusInput}>Focus Input</button>
+//     </>
+//   );
+// }
+
+/****TRACKING STATE CHANGES****/
+function App() {
+  const [inputValue, setInputValue] = useState("");
+  const previousInputValue = useRef("");
+
+  useEffect(() => {
+    previousInputValue.current = inputValue;
+  }, [inputValue]);
 
   return (
     <>
-      <h1>{`Hello ${user}!`}</h1>
-      <Component2 user={user} />
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+      />
+      <h2>Current Value: {inputValue}</h2>
+      <h2>Previous Value: {previousInputValue.current}</h2>
     </>
   );
 }
 
-function Component2({ user }) {
-  return (
-    <>
-      <h1>Component 2</h1>
-      <Component3 user={user} />
-    </>
-  );
-}
 
-function Component3({ user }) {
-  return (
-    <>
-      <h1>Component 3</h1>
-      <Component4 user={user} />
-    </>
-  );
-}
-
-function Component4({ user }) {
-  return (
-    <>
-      <h1>Component 4</h1>
-      <Component5 user={user} />
-    </>
-  );
-}
-
-function Component5({ user }) {
-  return (
-    <>
-      <h1>Component 5</h1>
-      <h2>{`Hello ${user} again!`}</h2>
-    </>
-  );
-}
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Component1 />);
+export default App;
