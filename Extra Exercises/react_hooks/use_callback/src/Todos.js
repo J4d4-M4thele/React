@@ -14,4 +14,5 @@ const Todos = ({ todos, addTodo }) => {
 };
 
 //memo: not to rerender when states change
+//returns a memoized value whereas useCallback returns memoised function 
 export default memo(Todos);
